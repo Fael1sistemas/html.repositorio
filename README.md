@@ -2,4 +2,3 @@
 pra estudar
 
 aprendendo a gerenciar repositorios
-mexendo mais
