@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="html.ico" type="image/x-icon">
+<title>TOP DEMAIS BOY</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+  body {
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #7df9ff;
+    text-shadow: 0 0 10px #7df9ff, 0 0 30px #00ffff;
+    animation: flicker 2s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+    }
+    20%, 24%, 55% {
+      opacity: 0.3;
+    }
+  }
+
+  p, blockquote {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #ddd;
+  }
+
+  blockquote {
+    margin-top: 10px;
+    font-style: italic;
+    color: #7df9ff;
+  }
+
+  mark {
+    background: transparent;
+    color: #ff007f;
+    text-shadow: 0 0 10px #ff007f;
+  }
+
+  img {
+    border-radius: 16px;
+    border: 2px solid #7df9ff;
+    box-shadow: 0 0 20px #00ffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #00ffff;
+  }
+
+  iframe {
+    border: 2px solid #7df9ff;
+    border-radius: 16px;
+    box-shadow: 0 0 30px #00ffff;
+    margin-top: 20px;
+  }
+
+  /* Efeito de faísca ao clicar */
+  .spark {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: spark-animation 0.5s ease-out forwards;
+  }
+
+  @keyframes spark-animation {
+    0% { transform: scale(1) translate(0, 0); opacity: 1; }
+    100% { transform: scale(0) translate(var(--x), var(--y)); opacity: 0; }
+  }
+
+</style>
+</head>
+<body>
+  <h1>TOP DEMAIS BOY</h1>
+  <p>
+    <mark><q><big><del><ins>Tu é um comédia boy<sup>ceta</sup><sub>chifrudo</sub></ins></del></big></q></mark>
+    <blockquote>Como diria um amigo meu: Kung Fu você conhece o WhatsApp?</blockquote>
+  </p>
+
+  <img src="https://i.ytimg.com/vi/wmV4o-oWszA/maxresdefault.jpg" height="300" alt="-Kung Fu 🐉">
+
+  <iframe width="640" height="360"
+    src="https://www.youtube.com/embed/CM2MJ7_s1Zo"
+    title="Kung Fu"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    // Efeito de faísca ao clicar
+    document.body.addEventListener("click", (e) => {
+      for (let i = 0; i < 8; i++) {
+        const spark = document.createElement("div");
+        spark.classList.add("spark");
+        const angle = (Math.PI * 2 * i) / 8;
+        const distance = 60;
+        spark.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+        spark.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+        spark.style.left = `${e.clientX}px`;
+        spark.style.top = `${e.clientY}px`;
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 500);
+      }
+    });
+  </script>
+</body>
+</html>
+
